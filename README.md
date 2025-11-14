@@ -45,9 +45,9 @@ columns 3
     space
     gamepage[\"Render game page to filepath"\]
     space
-    galleryt[["load game page template"]]
+    galleryt[["load gallery page template"]]
     space
-    index[\"Render game page to index.html file in /build "\]
+    index[\"Render gallery page to index.html file in /build "\]
     
     data --> gamet
     gamet --> loop2
