@@ -118,3 +118,4 @@ function loadGameContentFromDisk(name) {
 }
 
 generateImage(process.env.GAME.replace(".js", ""))
+console.log(`[SUCCESS] Generated image for ${process.env.GAME}`)
