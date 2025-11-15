@@ -1,6 +1,7 @@
 import os
 import json
 
+os.system("rm -rf build/assets")
 os.system("cp -r assets build/assets")
 
 with open('build/metadata.json', 'r',  encoding='utf-8') as file:
