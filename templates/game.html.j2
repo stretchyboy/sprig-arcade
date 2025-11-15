@@ -7,22 +7,19 @@
   <link rel="icon" type="image/png" href="/assets/utc-olp.png">
 </head>
 <body>
-<div class="canvas-container">
-  <canvas id="canvas" width="800" height="700" tabindex="0"></canvas>
-</div>
+  <canvas id="canvas" width="800" height="600" tabindex="0"></canvas>
   <script type="module">
     import { webEngine } from "https://esm.sh/sprig@1/web";
 
     const canvas = document.getElementById("canvas");
-    const game = webEngine(canvas);
-
     fetch(`/games/{{ slug }}.js`)
       .then(r => r.text())
       .then(code => {
+        const game = webEngine(canvas);
         const fn = new Function(...Object.keys(game.api), code);
         fn(...Object.values(game.api));
         canvas.focus();
-      });
+    });
 
     document.addEventListener('click', () => canvas.focus());
   </script>
