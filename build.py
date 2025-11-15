@@ -81,7 +81,7 @@ for game in os.listdir("./sprig/games"):
         # @section: create or copy image
         if os.path.exists(f"./sprig/games/img/{title}.png"):
             print(f"[INFO]: Copying existing image for game '{game}'")
-            os.system(f"cp ./sprig/games/img/{title}.png ./build/games/{gameNoExt}")
+            os.system(f"cp ./sprig/games/img/{title}.png ./build/games/{gameNoExt}.png")
         else:
             print(f"[INFO]: Generating image for game '{title} ({game})'")
             os.system(f"GAME={game} {node_bin}/node thumbnail.js")
