@@ -25,6 +25,7 @@ for gameFilename in data:
     gameName = gameFilename.replace('.js', '')
     outpath = os.path.join('build', 'games', gameName, 'index.html')
     os.makedirs(os.path.dirname(outpath), exist_ok=True)
+    print(f'Built page for {gameName} at {outpath}')
     
     rendr = gametemp.render(slug=gameName, game=data[gameFilename])
     with open(outpath, 'w', encoding='utf-8') as outfile:
