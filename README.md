@@ -39,7 +39,7 @@ columns 3
     gamet[["load game page template"]]
     space
     loop2[["Foreach game in data"]]
-    
+
     space
     filepath[["filepath ='/build/games/{game}/index.html'"]]
     space
@@ -48,7 +48,7 @@ columns 3
     galleryt[["load gallery page template"]]
     space
     index[\"Render gallery page to index.html file in /build "\]
-    
+
     data --> gamet
     gamet --> loop2
     loop2 --> filepath
@@ -65,4 +65,3 @@ style buildpages fill:#EEF
 
 
 ```
-
