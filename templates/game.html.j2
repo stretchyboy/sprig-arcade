@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <title>{{ game.title or slug }}</title>
+  <link rel="stylesheet" href="/assets/game.css">
+  <link rel="icon" type="image/png" href="/assets/utc-olp.png">
 </head>
 <body>
 <div class="canvas-container">
   <canvas id="canvas" width="800" height="700" tabindex="0"></canvas>
 </div>
-
-
   <script type="module">
     import { webEngine } from "https://esm.sh/sprig@1/web";
 
