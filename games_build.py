@@ -4,6 +4,17 @@ import json
 
 AUTHORS = ["anonymous", "sigfredo feat. whatware"]
 
+# monkey patch os.system to exit on failure
+_original_system = os.system
+def safe_system(cmd):
+    rc = _original_system(cmd)
+    if rc != 0:
+        print(f"[ERROR] Command failed ({rc}): {cmd}")
+        exit(rc)
+    return rc
+
+os.system = safe_system
+
 os.system("rm -rf sprig build node* package-lock.json")
 
 os.system("git clone https://github.com/hackclub/sprig --depth 1 --branch main")
