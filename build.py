@@ -52,6 +52,7 @@ for game in os.listdir("./sprig/games"):
         continue
     with open(f"./sprig/games/{game}", encoding="utf-8", errors="ignore") as gameFile:
         content = gameFile.read()
+        gameNoExt = game.replace(".js", "")
 
         # @section: extract metadata
         try:
@@ -80,14 +81,14 @@ for game in os.listdir("./sprig/games"):
         # @section: create or copy image
         if os.path.exists(f"./sprig/games/img/{title}.png"):
             print(f"[INFO]: Copying existing image for game '{game}'")
-            os.system(f"cp ./sprig/games/img/{title}.png ./build/games/{game.replace(".js", ".png")}")
+            os.system(f"cp ./sprig/games/img/{title}.png ./build/games/{gameNoExt}")
         else:
             print(f"[INFO]: Generating image for game '{title} ({game})'")
             os.system(f"GAME={game} {node_bin}/node thumbnail.js")
         # @endsection create or copy image
         
         # @section: add game metadata
-        games[game.replace(".js", "")] = {
+        games[gameNoExt] = {
             "title": title,
             "author": author,
             "description": description
@@ -95,9 +96,9 @@ for game in os.listdir("./sprig/games"):
         # @endsection add game metadata
 
         # @section: render game page
-        outPath = os.path.join('build', 'games', game.replace(".js", ""), 'index.html')
+        outPath = os.path.join('build', 'games', gameNoExt, 'index.html')
         os.makedirs(os.path.dirname(outPath), exist_ok=True)
-        render = templates.game.render(slug=game, game=games[game])
+        render = templates.game.render(slug=gameNoExt, game=games[gameNoExt])
         with open(outPath, 'w', encoding='utf-8') as outFile:
             outFile.write(render)
         # @endsection render game page
