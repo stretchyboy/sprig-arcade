@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{{ game.title or slug }}</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #000;
+    }
+    canvas {
+          border: 2px solid var(--accent);
+    display: block;
+    background: #000000;
+    height: auto;
+    aspect-ratio: 1000 / 800;
+    image-rendering: pixelated;
+    outline: none;
+    width: 100%;
+    box-sizing:inherit;
+    
+    }
+    .canvas-container {
+      width: 100%;
+      max-width: 1000px;
+      flex-grow: 1;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="canvas-container">
+  <canvas id="canvas" width="1000" height="800" tabindex="0"></canvas>
+</div>
+  <script type="module">
+    import { webEngine } from "https://esm.sh/sprig@1/web";
+
+    const canvas = document.getElementById("canvas");
+    const game = webEngine(canvas);
+
+    fetch(`/games/{{ slug }}.js`)
+      .then(r => r.text())
+      .then(code => {
+        const fn = new Function(...Object.keys(game.api), code);
+        fn(...Object.values(game.api));
+      })
+      .catch(err => console.error('Cant load game ', err));
+
+    document.addEventListener('click', () => canvas.focus());
+    
+    // Also focus on page load
+    window.addEventListener('load', () => canvas.focus());
+  </script>
+</body>
+</html>

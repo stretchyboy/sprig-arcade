@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'tt_rounds_neue_trl_cmdrg';
+    src: url('tt_rounds_neue_trial_compressed_regular-webfont.woff2') format('woff2'),
+         url('tt_rounds_neue_trial_compressed_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}

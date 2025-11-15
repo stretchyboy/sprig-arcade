@@ -6,14 +6,40 @@
 
 # The following TODO items are straight out of the diagram
 
-# TODO : data = read build/metadata.json
 
-# TODO : load game page template
+import os
+import json
 
-# TODO : Foreach game in data
-    # TODO : filepath ='/build/games/{game}/index.html'
-    # TODO : Render game page to filepath
+
+with open('build/metadata.json', 'r',  encoding='utf-8') as file:
+
+    data = json.load(file)
+
+
+
+from jinja2 import Environment, FileSystemLoader
+env = Environment(loader = FileSystemLoader('templates'))
+
+
+gallerytemp = env.get_template('gallery.html.j2')
+gametemp = env.get_template('game.html.j2')
+for gameFilename in data:
+    gameName = gameFilename.replace('.js', '')
+    outpath = os.path.join('build', 'games', gameName, 'index.html')
+    os.makedirs(os.path.dirname(outpath), exist_ok=True)
     
-# TODO : load gallery page template
-# TODO : Render gallery page to index.html file in /build 
+    rendr = gametemp.render(slug=gameName, game=data[gameFilename])
+    with open(outpath, 'w', encoding='utf-8') as outfile:
+        outfile.write(rendr)
+
+
+
+
+
+
+galleryhtml = gallerytemp.render(games=data)
+with open(os.path.join('build', 'index.html'), 'w', encoding='utf-8') as outfile:
+    outfile.write(galleryhtml)
+
     
+
