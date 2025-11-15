@@ -163,10 +163,6 @@ p {
   image-rendering: pixelated;
 }
 
-.game img:not([data-loaded="true"]) {
-  opacity: 0;
-}
-
 .game p,
 .game h3 {
   overflow: hidden;
