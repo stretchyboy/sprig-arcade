@@ -117,8 +117,8 @@ background-color: #eb7d26;
 							<div class="filter-tags"></div>
 							<div id="games">
 								{% for filename, game_data in games.items() %}
-									<a href="/games/{{ filename.replace('.js', '') }}/" class="game">
-										<img src="/games/{{ game_data.image }}" alt="thumbnail">
+									<a href="./games/{{ filename.replace('.js', '') }}/" class="game">
+										<img src="./games/{{ filename }}.png" alt="thumbnail">
 										<h3>{{ game_data.title or filename }}</h3>
 										<p class="author">by {{ game_data.author or 'Unknown' }}</p>
 									</a>

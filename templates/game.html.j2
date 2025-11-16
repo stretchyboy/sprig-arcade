@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>{{ game.title or slug }}</title>
-  <link rel="stylesheet" href="/assets/game.css">
-  <link rel="icon" type="image/png" href="/assets/utc-olp.png">
+  <link rel="stylesheet" href="../assets/game.css">
+  <link rel="icon" type="image/png" href="../assets/utc-olp.png">
 </head>
 <body>
   <canvas id="canvas" width="800" height="600" tabindex="0"></canvas>
@@ -12,7 +12,7 @@
     import { webEngine } from "https://esm.sh/sprig@1/web";
 
     const canvas = document.getElementById("canvas");
-    fetch(`/games/{{ slug }}.js`)
+    fetch(`../{{ slug }}.js`)
       .then(r => r.text())
       .then(code => {
         const game = webEngine(canvas);
