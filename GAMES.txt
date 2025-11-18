@@ -1,1 +1,1 @@
-https://github.com/hackclub/sprig/blob/main/games/2048_Alphabet_Edition.js
+https://github.com/22tyler-richardsl/sprig/blob/Automated-PR-1762261745961/games/The-Box-Adventure-Maze.js
