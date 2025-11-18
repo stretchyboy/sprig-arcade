@@ -128,43 +128,13 @@ background-color: #eb7d26;
                         <div class="filter-tags"></div>
 
                         <div id="games">
-                            
-                            <a href="./games/Pickman/" class="game">
-                                <img src="./games/Pickman.png" alt="thumbnail">
-                                <h3>Pickman!</h3>
-                                <p class="author">by overcheer</p>
-                            </a>
-                            
-                            <a href="./games/pong-multiplayer/" class="game">
-                                <img src="./games/pong-multiplayer.png" alt="thumbnail">
-                                <h3>pong-multiplayer</h3>
-                                <p class="author">by sean</p>
-                            </a>
-                            
-                            <a href="./games/epic-space-invaders/" class="game">
-                                <img src="./games/epic-space-invaders.png" alt="thumbnail">
-                                <h3>epic space invaders</h3>
-                                <p class="author">by iLikeToCode</p>
-                            </a>
-                            
-                            <a href="./games/2048_Alphabet_Edition/" class="game">
-                                <img src="./games/2048_Alphabet_Edition.png" alt="thumbnail">
-                                <h3>2048 Alphabet Edition</h3>
-                                <p class="author">by OptimalBlock489</p>
-                            </a>
-                            
-                            <a href="./games/Dogger/" class="game">
-                                <img src="./games/Dogger.png" alt="thumbnail">
-                                <h3>Dogger</h3>
-                                <p class="author">by Boyce Dyson</p>
-                            </a>
-                            
-                            <a href="./games/Cyan/" class="game">
-                                <img src="./games/Cyan.png" alt="thumbnail">
-                                <h3>Cyan</h3>
-                                <p class="author">by Boyce Dyson</p>
-                            </a>
-                            
+                            {% for filename, game_data in games.items() %}
+                                <a href="./games/{{ filename.replace('.js', '') }}/" class="game">
+                                    <img src="./games/{{ filename }}.png" alt="thumbnail">
+                                    <h3>{{ game_data.title or filename }}</h3>
+                                    <p class="author">by {{ game_data.author or 'Unknown' }}</p>
+                                </a>
+                            {% endfor %}
                         </div>
                     </div>
                     <br><br>
