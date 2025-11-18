@@ -1,8 +1,10 @@
 body {
   overflow-y: scroll;
+  background: rgb(255, 255, 255);
+  color: black;
 }
 
-.copy-container > h1 {
+.copy-container>h1 {
   margin-bottom: 12px;
 }
 
@@ -48,22 +50,24 @@ p {
   align-items: center;
   position: relative;
 }
-.randomButton{
-   height: 100%;
-   background: white;
-   border: 0.01px solid;
-   border-radius: 10px;
-   margin-right: 50px;
-   cursor: pointer;
-   font-family: inherit;
-   font-size: 15px;
-   transition: 0.4s ease-in-out;
+
+.randomButton {
+  height: 100%;
+  background: white;
+  border: 0.01px solid;
+  border-radius: 10px;
+  margin-right: 50px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  transition: 0.4s ease-in-out;
 }
 
-.randombutton:hover{
-  transform: translate(1px,2px);
+.randombutton:hover {
+  transform: translate(1px, 2px);
   box-shadow: 10px 10px;
 }
+
 .select select {
   line-height: 1.2;
   background: var(--bg-btn-inactive);
@@ -238,4 +242,71 @@ p {
     vertical-align: middle;
     width: 100%;
   }
+}
+
+#search-input {
+  height: -webkit-fill-available;
+}
+
+aside {
+  display: block;
+  align-items: center;
+  width: 21%;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 20%;
+  text-align: center;
+}
+
+aside>img {
+  object-fit: cover;
+  display: inline;
+  border-radius: 100px;
+}
+
+aside>p {
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  width: 60%;
+  flex: 1;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+nav {
+  margin: auto;
+  width: 65%;
+  height: 60px;
+  padding: 0px;
+  margin-top: 10px;
+  margin-bottom: 00px;
+  background-color: #eb7d26;
+
+}
+
+main {
+  margin: auto;
+  width: 65%;
+  padding: 0px;  
+}
+
+.randomButton {
+  height: 100%;
+  background: white;
+  border: 0.01px solid;
+  border-radius: 10px;
+  margin-right: 50px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  transition: 0.4s ease-in-out;
+}
+
+.randomButton:hover {
+  transform: translate(-3px, -5px);
+  box-shadow: 3px 3px;
 }
