@@ -48,10 +48,10 @@ with open(f"./GAMES.txt", encoding="utf-8", errors="ignore") as gamesFile:
         if line.startswith("#"):
             continue
         elif re.match(r"https?://", line):
-            m = re.match(r"https?://github\.com/([^/]+)/([^/]+)/blob/([^/]+)/(.*)", line)
+            m = re.match(r"https?://github\.com/([^/]+)/([^/]+)/blob/(.*)", line)
             if m:
-                user, repo, branch, path = m.groups()
-                line = f"https://raw.githubusercontent.com/{user}/{repo}/{branch}/{path}"
+                user, repo, path = m.groups()
+                line = f"https://raw.githubusercontent.com/{user}/{repo}/{path}"
 
             try:
                 content = requests.get(line).text
